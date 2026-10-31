@@ -8,17 +8,17 @@
 <style>
 :root{
   --bg:#eef0f4;--s1:#fff;--s2:#f3f5f9;--tx:#16202e;--mut:#6a7689;--bd:#e1e6ee;
-  --ac:#f5a524;--ac-d:#d98a0b;--ac-tx:#2a1a00;--amb:#fff1cf;--ink:#101a2c;--dg:#e5484d;--code:#0d1524;--codetx:#8ff0b5;--sb:rgba(16,26,44,.3);--sbh:#d98a0b;color-scheme:light;
+  --ac:#f5a524;--ac-d:#d98a0b;--ac-tx:#2a1a00;--amb:#fff1cf;--ink:#101a2c;--dg:#e5484d;--code:#0d1524;--codetx:#8ff0b5;--sb:rgba(16,26,44,.3);--sbh:#d98a0b;--lk:#a85a00;color-scheme:light;
   --sh1:0 1px 2px rgba(16,26,44,.06),0 2px 6px rgba(16,26,44,.05);
   --sh2:0 2px 4px rgba(16,26,44,.05),0 8px 20px rgba(16,26,44,.08),0 20px 40px rgba(16,26,44,.06);
   --sh3:0 4px 8px rgba(16,26,44,.08),0 16px 36px rgba(16,26,44,.14),0 40px 80px rgba(16,26,44,.14);
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --sb:rgba(255,255,255,.26);color-scheme:dark;--bg:#0a1120;--s1:#131d31;--s2:#1a263e;--tx:#e8edf7;--mut:#8b98b0;--bd:#24334f;--ink:#060b15;--amb:rgba(245,165,36,.2);
+  --lk:#ffc247;--sb:rgba(255,255,255,.26);color-scheme:dark;--bg:#0a1120;--s1:#131d31;--s2:#1a263e;--tx:#e8edf7;--mut:#8b98b0;--bd:#24334f;--ink:#060b15;--amb:rgba(245,165,36,.2);
   --sh1:0 1px 2px rgba(0,0,0,.4),0 2px 6px rgba(0,0,0,.3);
   --sh2:0 2px 4px rgba(0,0,0,.3),0 10px 24px rgba(0,0,0,.4),0 24px 48px rgba(0,0,0,.3);
   --sh3:0 6px 12px rgba(0,0,0,.4),0 20px 44px rgba(0,0,0,.55),0 48px 90px rgba(0,0,0,.5)}}
-:root[data-theme="dark"]{--sb:rgba(255,255,255,.26);color-scheme:dark;--bg:#0a1120;--s1:#131d31;--s2:#1a263e;--tx:#e8edf7;--mut:#8b98b0;--bd:#24334f;--ink:#060b15;--amb:rgba(245,165,36,.2);
+:root[data-theme="dark"]{--lk:#ffc247;--sb:rgba(255,255,255,.26);color-scheme:dark;--bg:#0a1120;--s1:#131d31;--s2:#1a263e;--tx:#e8edf7;--mut:#8b98b0;--bd:#24334f;--ink:#060b15;--amb:rgba(245,165,36,.2);
   --sh1:0 1px 2px rgba(0,0,0,.4),0 2px 6px rgba(0,0,0,.3);--sh2:0 2px 4px rgba(0,0,0,.3),0 10px 24px rgba(0,0,0,.4),0 24px 48px rgba(0,0,0,.3);--sh3:0 6px 12px rgba(0,0,0,.4),0 20px 44px rgba(0,0,0,.55),0 48px 90px rgba(0,0,0,.5)}
 *{box-sizing:border-box}html,body{margin:0;height:100%}[hidden]{display:none!important}
 ::-webkit-scrollbar{width:12px;height:12px}::-webkit-scrollbar-track{background:transparent}
@@ -67,6 +67,7 @@ main{overflow-y:auto;min-height:0}
 .body ol li{counter-increment:st;position:relative;margin:0;padding:12px 14px 12px 56px;background:var(--s2);border-radius:14px;line-height:1.7;box-shadow:var(--sh1)}
 .body ol li:before{content:counter(st);position:absolute;left:13px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--ac);color:var(--ac-tx);display:grid;place-items:center;font-weight:700;font-size:14px;box-shadow:0 3px 8px rgba(245,165,36,.4)}
 .body b{font-weight:600}
+.body a{color:var(--lk);font-weight:500;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}.body a:hover{text-decoration-thickness:2px}
 code{background:var(--s2);padding:2px 8px;border-radius:7px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88em;box-shadow:var(--sh1)}
 pre{background:var(--code);color:var(--codetx);padding:16px 18px;border-radius:14px;overflow-x:auto;margin:0 0 16px;position:relative;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;box-shadow:inset 0 2px 8px rgba(0,0,0,.5),var(--sh1)}
 pre code{background:none;padding:0;color:inherit;box-shadow:none}
@@ -157,7 +158,7 @@ aside.open{transform:none;box-shadow:var(--sh3)}.menu{display:inline-block}
   <label>ไอคอน (เลือกจากรายการ)</label>
   <div class="icons" id="f_icons"></div>
   <div class="irow"><div class="ico" id="f_prev">📁</div><input id="f_ico" placeholder="หรือพิมพ์/วางอีโมจิเองที่นี่" aria-label="อีโมจิที่กำหนดเอง"></div>
-  <label for="f_body">วิธีแก้</label>
+  <label for="f_body">วิธีแก้ <span style="opacity:.75">(วางลิงก์ https://... ได้เลย หรือใช้ [ข้อความ](ลิงก์))</span></label>
   <div class="fbar"><button type="button" data-fmt="h"><b>H</b> หัวข้อ</button><button type="button" data-fmt="ol">1. ขั้นตอน</button><button type="button" data-fmt="ul">• รายการ</button><button type="button" data-fmt="code">&lt;/&gt; โค้ดหลายบรรทัด</button><button type="button" data-fmt="ic">`โค้ดสั้น`</button><button type="button" data-fmt="b"><b>B</b> ตัวหนา</button></div>
   <textarea id="f_body" rows="10" placeholder="# เตรียมตัว&#10;1. เปิด CMD แบบ Admin&#10;2. พิมพ์ `sfc /scannow` แล้วกด Enter"></textarea>
   <label>รูปภาพ</label>
@@ -246,7 +247,18 @@ const imgCache = {}, imgBusy = new Set();
 const byOrder = (a, b) => (a.order ?? 1e15) - (b.order ?? 1e15) || (b.upd || 0) - (a.upd || 0);
 
 /* ---------- render ---------- */
-const inline = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+const inline = s => {
+  const keep = [];
+  let t = esc(s).replace(/`([^`]+)`/g, (m, c) => { keep.push('<code>' + c + '</code>'); return '\u0000' + (keep.length - 1) + '\u0000'; });
+  const a = (u, label) => '<a href="' + u + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+  t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<]+)/g, (m, lb, u1, u2) => {
+    if (u1) return a(u1, lb);
+    const tail = (u2.match(/(?:[.,;:!?)]|&quot;|&#39;)+$/) || [''])[0];
+    const u = u2.slice(0, u2.length - tail.length);
+    return u ? a(u, u) + tail : m;
+  });
+  return t.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/\u0000(\d+)\u0000/g, (m, i) => keep[i]);
+};
 function fmtText(t) {
   let h = '', list = null, para = [], m;
   const fp = () => { if (para.length) { h += '<p>' + inline(para.join('\n')) + '</p>'; para = []; } };
